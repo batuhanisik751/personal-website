@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Cevdet Batuhan Isik — Personal Website
 
-## Getting Started
+A single-page personal portfolio built with Next.js. Bold/modern dark "Amber Glow" theme,
+JetBrains Mono + Inter typography, and scroll-driven animations.
 
-First, run the development server:
+**Sections:** Hero · About · Experience · Projects · Skills · Contact
+
+## Tech stack
+
+- [Next.js 16](https://nextjs.org) (App Router) + React 19 + TypeScript
+- [Tailwind CSS v4](https://tailwindcss.com)
+- [Framer Motion](https://www.framer.com/motion/) for animations
+
+## Local development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build   # production build
+npm run start   # serve the production build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Editing content
 
-## Learn More
+All résumé content (bio, experience, projects, skills, links) lives in
+[`lib/data.ts`](lib/data.ts) — edit there and every section updates.
 
-To learn more about Next.js, take a look at the following resources:
+- **Photo:** `public/profile.jpg`, referenced via `profile.photo` in `lib/data.ts`.
+- **Resume:** `public/resume.pdf` (served by the Download Resume buttons).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contact form (Formspree)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The contact form posts to [Formspree](https://formspree.io). To enable it:
 
-## Deploy on Vercel
+1. Create a free form at formspree.io and copy its form ID (the part after `/f/`).
+2. Create `.env.local`:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```
+   NEXT_PUBLIC_FORMSPREE_ID=your_form_id
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Without this, the form gracefully falls back to opening the visitor's email client.
+
+## Deployment
+
+Deploys to [Vercel](https://vercel.com): import the GitHub repo, add the
+`NEXT_PUBLIC_FORMSPREE_ID` environment variable, and deploy.
