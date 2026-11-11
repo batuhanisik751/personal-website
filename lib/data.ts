@@ -9,7 +9,7 @@ export const profile = {
   lastName: "Isik",
   role: "AI/ML Software Engineer",
   tagline:
-    "Computer Science student at Northeastern University building AI products and intelligent systems — from multi-agent RAG to deep learning pipelines.",
+    "Computer Science student at Northeastern University, concentrating in AI, building AI products and intelligent systems, from agentic multi-agent RAG to deep learning pipelines.",
   location: "Boston, MA",
   email: "isik.c@northeastern.edu",
   phone: "(617) 595-2314",
@@ -22,18 +22,19 @@ export const profile = {
 
 export const about = {
   blurb: [
-    "I'm a Computer Science student at Northeastern University's Khoury College, graduating December 2026. I work at the intersection of applied machine learning and full-stack engineering — shipping AI products that real people actually use.",
-    "Most recently I've architected generative-AI tools for a national public-sector learning platform, engineered diffusion-based computer-vision workflows, and built retrieval systems over tens of thousands of documents. I care about turning research-grade ideas into reliable, well-designed software.",
+    "I'm a Computer Science student at Northeastern University's Khoury College with a concentration in Artificial Intelligence, graduating December 2026. I work at the intersection of applied machine learning and full-stack engineering, shipping AI products that real people actually use.",
+    "Most recently I built an agentic, multi-agent RAG coaching tool for a national learning platform serving 200,000+ public-sector professionals, from the React frontend and Node.js REST APIs to the serverless AWS architecture behind it. Before that, I engineered diffusion-based computer-vision workflows and built retrieval systems over tens of thousands of documents.",
   ],
   facts: [
     { label: "Based in", value: "Boston, MA" },
-    { label: "Education", value: "B.S. Computer Science, Northeastern" },
+    { label: "Education", value: "B.S. Computer Science (AI), Northeastern" },
     { label: "Graduating", value: "December 2026" },
     { label: "Focus", value: "AI / ML · Full-Stack" },
   ],
   leadership: [
-    "Co-President — Turkish Student Association (TSA), Northeastern University",
-    "Member — Delta Kappa Epsilon Fraternity",
+    "Co-President, Turkish Student Association (TSA), Northeastern University",
+    "Member, Delta Kappa Epsilon Fraternity",
+    "Dean's List, Spring 2023",
   ],
 } as const;
 
@@ -50,17 +51,17 @@ export type Experience = {
 export const experience: Experience[] = [
   {
     company: "Burnes Center for Social Change (InnovateUS)",
-    role: "AI for Impact Fellow",
+    role: "Generative AI Product Development Fellow",
     location: "Boston, MA",
     period: "Jan 2026 – Jun 2026",
-    current: true,
     bullets: [
-      "Architected generative-AI products for InnovateUS, a national learning platform serving 200,000+ public-sector professionals across U.S. government agencies.",
-      "Built a multi-agent RAG coaching tool (React, Express, Weaviate, OpenAI, AWS Lambda/CDK) that routes user turns across five specialized prompt agents over a cited public-engagement knowledge base.",
-      "Conducted qualitative and quantitative research to define problems, evaluate impact, and guide evidence-based solution design.",
-      "Managed the AI product lifecycle from concept to deployment, collaborating with product managers and communicating outcomes to technical and non-technical audiences.",
+      "Built an agentic, multi-agent RAG coaching tool powered by OpenAI LLMs for InnovateUS, a national learning platform serving 200,000+ public-sector professionals; an orchestrator routes each user turn to one of 5 specialized prompt agents over a cited Weaviate knowledge base.",
+      "Developed full-stack features across a React/TypeScript frontend (Tailwind, Cognito sign-in, accessibility and mobile fixes) and a Node.js backend of REST APIs on AWS Lambda, streaming chat responses over WebSockets.",
+      "Designed the serverless AWS architecture in CDK (API Gateway, Lambda, Step Functions, DynamoDB, S3), including Python ingestion scripts that load documents into Weaviate, interview ingestion pipelines with failure handling, PII redaction via AWS Comprehend, and CloudWatch alarms on error rate and latency.",
+      "Shipped through a GitHub Actions CI/CD pipeline running Vitest tests on every push to main; wrote the LLM output-quality and evaluation criteria and refined prompts based on errors we found.",
+      "Conducted qualitative and quantitative user research with product managers to define requirements, managed the product lifecycle from problem statement to deployment, and communicated outcomes to technical and non-technical audiences.",
     ],
-    tags: ["React", "Express", "Weaviate", "OpenAI", "AWS Lambda", "AWS CDK", "RAG"],
+    tags: ["React", "TypeScript", "Node.js", "OpenAI", "Weaviate", "AWS Lambda", "AWS CDK", "Step Functions", "Python", "RAG"],
   },
   {
     company: "OBSS Technology",
@@ -68,8 +69,8 @@ export const experience: Experience[] = [
     location: "Istanbul, Turkey",
     period: "Jun 2025 – Aug 2025",
     bullets: [
-      "Engineered advanced inpainting workflows in ComfyUI to automatically remove objects from images and regenerate realistic background regions using diffusion-based models.",
-      "Formulated an AI realism evaluation algorithm in FiftyOne, leveraging LPIPS and SSIM to quantitatively assess visual fidelity between AI-generated and real images, enabling objective benchmarking of generative-model outputs.",
+      "Engineered diffusion-based inpainting workflows in ComfyUI that automatically remove objects from images and regenerate realistic backgrounds.",
+      "Built an image-realism evaluation algorithm in FiftyOne using LPIPS and SSIM, enabling objective benchmarking of generative model outputs against real images.",
     ],
     tags: ["ComfyUI", "Diffusion Models", "FiftyOne", "LPIPS", "SSIM", "Python"],
   },
@@ -79,9 +80,9 @@ export const experience: Experience[] = [
     location: "Boston, MA",
     period: "Jul 2024 – Dec 2024",
     bullets: [
-      "Audited and optimized a B2B Canvas LMS, ensuring correct user reporting and sub-account structure within the platform.",
-      "Refined the support process and improved documentation clarity for the B2B Canvas platform and Canvas Credentials.",
-      "Prototyped a Salesforce solution using Salesforce Flow Builder and Einstein Copilot with AI-driven automation.",
+      "Audited and optimized a B2B Canvas LMS for Northeastern's non-credit certification programs, maintaining user reporting and sub-account structure.",
+      "Ran office hours for professors, resolving Canvas issues live, and refined the support process and documentation for Canvas and Canvas Credentials.",
+      "Built a Salesforce workflow automation prototype with Flow Builder and Einstein Copilot at a hackathon after completing 56 hours of admin training.",
     ],
     tags: ["Canvas LMS", "Salesforce", "Flow Builder", "Einstein Copilot"],
   },
@@ -98,14 +99,30 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "Public Engagement Coach",
+    date: "Jan 2026 – Jun 2026",
+    blurb:
+      "An agentic, multi-agent RAG coach that helps public servants turn what they learned in a course into a plan for their own project, built at the Burnes Center for InnovateUS, a platform serving 200,000+ public-sector professionals.",
+    highlights: [
+      "Coaches users conversationally through a nine-question public engagement framework.",
+      "Routes each turn to one of 5 specialized agents over a cited Weaviate knowledge base of case studies, research, and anonymized expert interviews.",
+      "Runs on a serverless AWS stack (Lambda, API Gateway, Step Functions, DynamoDB, Cognito) deployed through GitHub Actions.",
+    ],
+    stack: ["React", "TypeScript", "Node.js", "OpenAI", "Weaviate", "AWS", "Python"],
+    link: {
+      href: "https://coach.innovate-us.org/",
+      label: "Visit live site",
+    },
+  },
+  {
     title: "Quantifying Happiness",
     date: "Dec 2025",
     blurb:
       "A personalized iOS AI system that models the relationship between health metrics and daily satisfaction to generate data-driven lifestyle recommendations.",
     highlights: [
-      "Modeled relationships between 9 health metrics and user satisfaction.",
-      "Applied Simulated Annealing with KNN regression — improved predicted satisfaction from 5.0 to 8.98 over 1,000 iterations.",
-      "Shipped a SwiftUI app integrated with HealthKit for trends, input, and recommendations.",
+      "Modeled how 9 HealthKit health metrics relate to user satisfaction to recommend daily changes.",
+      "Applied simulated annealing over KNN regression, raising predicted satisfaction from 5.0 to 8.98 over 1,000 iterations with convergence toward the global optimum.",
+      "Validated end to end on a 100-record synthetic dataset and delivered as a SwiftUI app integrated with HealthKit.",
     ],
     stack: ["Swift", "SwiftUI", "HealthKit", "Python", "KNN", "Simulated Annealing"],
     link: {
@@ -114,14 +131,14 @@ export const projects: Project[] = [
     },
   },
   {
-    title: "Yelp-Based Restaurant Retrieval",
+    title: "Yelp Restaurant Retrieval System",
     date: "Apr 2025",
     blurb:
       "A location-aware semantic search engine over 50,000+ Yelp reviews and business metadata, ranking results by relevance and proximity.",
     highlights: [
-      "Implemented dense retrieval with SBERT + FAISS over 50,000+ reviews.",
-      "Ranked results by review relevance and user proximity.",
-      "Evaluated with MAP@100 and custom relevance tiers against ground-truth labels.",
+      "Built dense retrieval with SBERT embeddings and FAISS over 50,000+ reviews.",
+      "Re-ranked results by rating and user proximity.",
+      "Evaluated ranking quality against ground-truth labels with custom relevance tiers using MAP@100.",
     ],
     stack: ["Python", "SBERT", "FAISS", "NLP", "Information Retrieval"],
     link: {
@@ -130,28 +147,16 @@ export const projects: Project[] = [
     },
   },
   {
-    title: "Salesforce Hackathon",
-    date: "Nov 2024",
+    title: "Hexagonal Reversi",
+    date: "Dec 2023 · extended Mar 2026",
     blurb:
-      "A customized Salesforce solution automating business workflows, built after 56 hours of Salesforce Admin training.",
+      "A complete Java implementation of Reversi on a custom hexagonal board, later extended with a JavaFX interface, AI opponents, and LAN multiplayer.",
     highlights: [
-      "Completed 56 hours of Salesforce Admin training.",
-      "Automated business workflows with Salesforce Flow Builder.",
-      "Integrated Einstein Copilot actions to streamline guest check-in.",
+      "Built the game on an MVC architecture and migrated the GUI from Swing to JavaFX with keyboard navigation and move highlighting.",
+      "Added AI opponents using minimax with alpha-beta pruning.",
+      "Added save/load and LAN multiplayer, backed by JUnit tests.",
     ],
-    stack: ["Salesforce", "Flow Builder", "Einstein Copilot", "Automation"],
-  },
-  {
-    title: "Reversi",
-    date: "Dec 2023",
-    blurb:
-      "A complete Java implementation of Reversi with full game logic, state management, and a custom interactive hexagonal board.",
-    highlights: [
-      "Programmed complete game logic and state management in Java.",
-      "Designed an interactive GUI with a custom hexagonal board.",
-      "Added real-time visual updates and mouse/keyboard controls.",
-    ],
-    stack: ["Java", "OOP", "GUI", "Game Logic"],
+    stack: ["Java", "JavaFX", "JUnit", "MVC", "Minimax"],
     link: {
       href: "https://github.com/batuhanisik751/JavaHexagonalReversi",
       label: "View on GitHub",
@@ -164,47 +169,70 @@ export type SkillGroup = { label: string; items: string[] };
 export const skills: SkillGroup[] = [
   {
     label: "Languages",
-    items: ["Python", "TypeScript", "JavaScript", "Swift", "Java", "C", "SQL", "R", "HTML/CSS"],
+    items: ["Python", "TypeScript", "JavaScript", "Java", "Swift", "C", "SQL", "R", "HTML/CSS"],
   },
   {
-    label: "ML / AI & Backend",
+    label: "Frameworks",
+    items: ["React", "Next.js", "Node.js", "Express", "FastAPI", "Tailwind CSS", "SwiftUI", "JavaFX"],
+  },
+  {
+    label: "LLMs & Agents",
     items: [
-      "PyTorch",
-      "NumPy",
-      "Pandas",
-      "scikit-learn",
-      "SBERT",
-      "FAISS",
-      "KNN",
-      "Simulated Annealing",
-      "LPIPS",
-      "Node.js",
-      "Express",
+      "LLMs",
+      "OpenAI API",
+      "RAG",
+      "Agentic & Multi-Agent Systems",
+      "LangChain",
+      "LlamaIndex",
+      "Prompt Engineering",
+      "LLM Fine-Tuning",
     ],
   },
   {
-    label: "Tools",
+    label: "Machine Learning",
+    items: ["PyTorch", "TensorFlow", "scikit-learn", "NumPy", "Pandas", "SBERT", "FAISS"],
+  },
+  {
+    label: "Cloud & DevOps",
     items: [
+      "AWS (Lambda, API Gateway, Step Functions, DynamoDB, S3, EC2, Cognito, CloudWatch, Comprehend)",
+      "CDK",
+      "Terraform",
+      "Docker",
+      "GitHub Actions",
+    ],
+  },
+  {
+    label: "Databases",
+    items: ["PostgreSQL", "Supabase", "DynamoDB", "MongoDB", "Redis", "Weaviate"],
+  },
+  {
+    label: "APIs & Concepts",
+    items: [
+      "REST APIs",
+      "GraphQL",
+      "WebSockets",
+      "Data Structures & Algorithms",
+      "OOP",
+      "Design Patterns",
+      "MVC",
+      "CI/CD",
+    ],
+  },
+  {
+    label: "Testing & Tools",
+    items: [
+      "Linux",
       "Git",
-      "VS Code",
+      "Vitest",
+      "React Testing Library",
+      "JUnit",
+      "Postman",
+      "Jupyter",
+      "Claude Code",
+      "Cursor",
+      "GitHub Copilot",
       "Figma",
-      "ComfyUI",
-      "FiftyOne",
-      "Salesforce Flow Builder",
-      "Einstein Copilot",
-      "HealthKit",
-      "SwiftUI",
-      "RStudio",
-    ],
-  },
-  {
-    label: "Cloud / DB / LLMs",
-    items: [
-      "AWS (EC2, S3, Lambda, IAM, EBS, ECS, RDS)",
-      "Supabase",
-      "ChatGPT",
-      "Claude",
-      "Google Gemini",
     ],
   },
 ];
